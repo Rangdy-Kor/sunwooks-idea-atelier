@@ -12,4 +12,4 @@ publish: true
 
 | 페이지                                             | 부모 노트                   | 생성일                 | 수정일                 |
 | ----------------------------------------------- | ----------------------- | ------------------- | ------------------- |
-| [[Paramount Ecosystem.md\|Paramount Ecosystem]] | [[Project.md\|Project]] | 2026-05-07 22:31:00 | 2026-05-08 18:57:34 |
+| [[Paramount Ecosystem.md\|Paramount Ecosystem]] | [[Project.md\|Project]] | 2026-05-07 22:31:00 | 2026-05-08 21:26:48 |

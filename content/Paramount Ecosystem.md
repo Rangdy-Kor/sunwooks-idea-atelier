@@ -6,9 +6,9 @@ publish: true
 
 ---
 
-| 프로필        | Paramount Ecosystem                      |
-| :--------- | :--------------------------------------- |
-| **디자인 색상** | Jet Black (Main)<br>Pigeon Blood (Point) |
+| 프로필        | Paramount Ecosystem                                  |
+| :--------- | :--------------------------------------------------- |
+| **디자인 색상** | Jet Black (Main Color)<br>Pigeon Blood (Point Color) |
 
 ## 개요
 
