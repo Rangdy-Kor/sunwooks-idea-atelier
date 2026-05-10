@@ -12,5 +12,5 @@ publish: true
 
 | 페이지                                                 | 부모 노트                   | 생성일                 | 수정일                 |
 | --------------------------------------------------- | ----------------------- | ------------------- | ------------------- |
-| [[Paramount Ecosystem.md\|Paramount Ecosystem]]     | [[Project.md\|Project]] | 2026-05-07 22:31:00 | 2026-05-08 21:26:48 |
+| [[Paramount Ecosystem.md\|Paramount Ecosystem]]     | [[Project.md\|Project]] | 2026-05-07 22:31:00 | 2026-05-10 11:39:14 |
 | [[Miencraft NEO Edition.md\|Miencraft NEO Edition]] | [[Project.md\|Project]] | 2026-05-09 10:49:14 | 2026-05-09 10:49:14 |
