@@ -18,13 +18,13 @@ publish: true
 
 ---
 
-|       제품군       |                    모델                    |        비고         |
-| :-------------: | :--------------------------------------: | :---------------: |
-|     **CPU**     |           AMD Ryzen 9 9950 X3D           |         -         |
-|     **GPU**     |    NVIDIA GeForce RTX 5090 32GB GDDR7    | ASUS Astral OC 버전 |
-|     **RAM**     | G.Skill Trident Z5 Neo F5-6000J3036G48X2 |  Hynix A-die 선별   |
-|     **SSD**     |    Samsung 9100 Pro PCIe 5.0 NVME 2.0    |     2TB & 8TB     |
-| **Motherboard** |       ASUS CROSSHAIR X870E EXTREME       |         -         |
+|       제품군       |                    모델                    |                 비고                  |
+| :-------------: | :--------------------------------------: | :---------------------------------: |
+|     **CPU**     |           AMD Ryzen 9 9950 X3D           |                  -                  |
+|     **GPU**     |    NVIDIA GeForce RTX 5090 32GB GDDR7    |          ASUS Astral OC 버전          |
+|     **RAM**     | G.Skill Trident Z5 Neo F5-6000J3036G48X2 |           Hynix A-die 선별            |
+|     **SSD**     |    Samsung 9100 Pro PCIe 5.0 NVME 2.0    | 2TB & 8TB<br>워터블록을 위해 방열판 미포함 버전 사용 |
+| **Motherboard** |     ASUS ROG CROSSHAIR X870E EXTREME     |                  -                  |
 
 ---
 
@@ -98,9 +98,8 @@ publish: true
 **Motherboard**
 
 - **Slot**
-  - PCIeX16\_1 ← GPU
-  - PCIeX16\_2 ← Fiber Optic NIC
-  - PCIe 4.0 x4 ← Thunderbolt Add-in Card
+  - PCIe 5.0 x16\_1 ← GPU
+  - PCIe 4.0 x4 ← Fiber Optic NIC
   - M.2\_1 ← 2TB SSD
   - M.2\_2 ← 8TB SSD
 
@@ -139,14 +138,17 @@ publish: true
 ---
 
 ```mermaid
-%%{init: {
-  'flowchart': {
-    'curve': 'basis',
-    'nodeSpacing': 60,
-    'rankSpacing': 80,
-    'htmlLabels': true
+%%{ 
+  init: { 
+    'theme': 'base',
+    'themeVariables': { 
+      'fontSize': '16px',
+      'nodeSpacing': 50,
+      'rankSpacing': 40,
+      'curve': 'basis'
+    }
   }
-}}%%
+}%%
 
 
 flowchart TD
@@ -239,7 +241,7 @@ Radiators -.-> Drain
 subgraph Loop_Parts["**루프 구성 부품**"]
     direction TB
 	Tube["**튜브**<br>EK-Loop Hard Tube<br>16mm Acrylic High Clarity"]
-	Coolant["**냉각수**<br>EK-CryoFuel Pigeon Blood<br>Transparent"]
+	Coolant["**냉각수**<br>Mayhems XT-1 Nuke V2<br>Transparent"]
 	Fittings["**피팅**<br>EK-Quantum Torque<br>HDC 16 Black + Red Ring<br>(Chamfering 처리)"]
 	Adapters["**어댑터 / 익스텐더**<br>Rotary 90° / 45°<br>Extender Static<br>Stop Plug"]
 	
@@ -294,15 +296,14 @@ Loop_Parts ~~~ Waterblock
 
 ---
 
-|       제품군       |                        모델                        |                  비고                  |
-| :-------------: | :----------------------------------------------: | :----------------------------------: |
-|   **피벗 모니터**    |                   BenQ PD2705Q                   | 최좌측 거치<br>문서 작업, 프로그래밍, 웹 열람, 세로 영상용 |
-|   **서브 모니터**    |           ASUS ROG Swift OLED PG32UCDM           |     좌측 거치<br>서브 작업, 미디어 관람 / 시청용     |
-|   **메인 모니터**    |            LG UltraGear OLED 32GS95UE            |         중앙 거치<br>메인 작업, 게이밍용         |
-|   **특수 모니터**    |    Dell UltraSharp HDR Premier Color UP3221Q     |       우측 거치<br>색상 보정, 미디어 편집용        |
-|    **모니터 암**    |           Humanscale M10 Single Black            |           개별 모니터 당 1개씩 구비            |
-| **하드웨어 캘리브레이터** |            Calibrite Display Plus HL             |        Dell UltraSharp 기준 보정         |
-|  **앰비언트 라이트**   | Philips Hue Play Gradient Lightstrip | Sync Box |        Pigeon Blood 톤 라이팅 색상         |
+|       제품군       |                        모델                        |                        비고                         |
+| :-------------: | :----------------------------------------------: | :-----------------------------------------------: |
+|   **피벗 모니터**    |                   BenQ PD2705Q                   | 최좌측 거치<br>문서 작업, 프로그래밍, 웹 열람, 세로 영상용<br>DP 1.4 연결 |
+|   **메인 모니터**    |            LG UltraGear OLED 32GS95UE            | 중앙 거치<br>메인 작업, 게이밍용<br>HDMI 2.1 연결 (Sync Box 경유) |
+|   **특수 모니터**    |    Dell UltraSharp HDR Premier Color UP3221Q     |       우측 거치<br>색상 보정, 미디어 편집용<br>DP 2.1 연결        |
+|    **모니터 암**    |           Humanscale M10 Single Black            |                  개별 모니터 당 1개씩 구비                  |
+| **하드웨어 캘리브레이터** |            Calibrite Display Plus HL             |               Dell UltraSharp 기준 보정               |
+|  **앰비언트 라이트**   | Philips Hue Play Gradient Lightstrip | Sync Box |               Pigeon Blood 톤 라이팅 색상               |
 
 #### Audio
 
@@ -310,7 +311,7 @@ Loop_Parts ~~~ Waterblock
 
 |      제품군      |                           모델                            |                       비고                        |
 | :-----------: | :-----------------------------------------------------: | :---------------------------------------------: |
-| **오디오 인터페이스** |                 Apogee Symphony Desktop                 |                        -                        |
+| **오디오 인터페이스** |                 Apogee Symphony Desktop                 |                USB-C to A/C 케이블                 |
 |    **스피커**    |                 Neumann KH 120 II Black                 |         Pigeon Blood Highlighting Logo          |
 | **진동 방지 스탠드** |                  IsoAcoustics ISO-155                   |                        -                        |
 |   **서브우퍼**    |                Neumann KH 750 DSP Black                 |                        -                        |
@@ -393,14 +394,13 @@ Utopia -.-> Rooms
 
 ---
 
-|          제품군          |                     모델                      |                     비고                     |
-| :-------------------: | :-----------------------------------------: | :----------------------------------------: |
-|        **프린터**        |          Epson EcoTank Pro ET-5850          |                     -                      |
-|       **광랜 모듈**       |          Intel 10G SFP+ SR Module           |                  DDM 모니터링                  |
-|       **광케이블**        | OM4 LC-LC Duplex Multimode Red Color Jacket |                     -                      |
-| **Thunderbolt 확장 카드** |            ASUS ThunderboltEX 4             |                     -                      |
-|      **USB 허브**       |                CalDigit TS4                 |           Thunderbolt Station 4            |
-|      **케이블 슬리브**      |                 MDPC-X XTC                  | Heatshrinkless 마감<br>Red Carbon 포인트 슬리브 색상 |
+|          제품군          |                   모델                   |          비고           |
+| :-------------------: | :------------------------------------: | :-------------------: |
+|        **프린터**        |       Epson EcoTank Pro ET-5850        |           -           |
+|      **네트워크 카드**      |             Intel X710-DA1             |           -           |
+|       **광랜 모듈**       |  Intel 10G SFP+ SR Module (E10GSFPSR)  |       DDM 모니터링        |
+|       **광패치코드**       | Panduit LC to LC Duplex OM4 Patch Cord |           -           |
+|      **USB 허브**       |              CalDigit TS4              | Thunderbolt Station 4 |
 
 #### Furniture
 
@@ -419,30 +419,30 @@ Utopia -.-> Rooms
 
 ---
 
-|         분류군          |                    소프트웨어                     |    라이선스     |      패키지 원본       |    비고     |
-| :------------------: | :------------------------------------------: | :---------: | :---------------: | :-------: |
-|       **운영체제**       |             Microsoft Windows 11             | Windows Pro |     Setup USB     |     -     |
-|     **칩셋 드라이버**      |     AMD X870E AM5 Chipset Driver Package     |      -      | Official Homepage |     -     |
-|     **그래픽 드라이버**     |           NVIDIA Game Ready Driver           |      -      | Official Homepage |     -     |
-|      **GPU 제어**      |      NVIDIA App<br>NVIDIA Control Panel      |      -      | Official Homepage |     -     |
-|                      |              ASUS GPU Tweak III              |      -      | Official Homepage |     -     |
-|                      |               MSI Mode Utility               |      -      | Official Homepage |     -     |
-|     **사운드 드라이버**     |     Realtek High Definition Audio Driver     |      -      | Official Homepage |     -     |
-|                      |       Neumann Control<br>Neumann MA 1        |      -      | Official Homepage |     -     |
-|                      |          Apogee Control 2 Software           |      -      | Official Homepage |     -     |
-|   **유선 네트워크 드라이버**   |                Intel 10G LAN                 |      -      | Official Homepage |     -     |
-|   **무선 네트워크 드라이버**   | Intel Wi-Fi Driver | Intel Bluetooth Driver |      -      | Official Homepage |     -     |
-|  **HID 드라이버 및 제어**   |              RealForce Connect               |      -      | Official Homepage |     -     |
-|                      |                  Wootility                   |      -      | Official Homepage |     -     |
-|                      |                 Logi Option+                 |      -      | Official Homepage |     -     |
-|                      |       Razer Synapse 4<br>Razer Chroma        |      -      | Official Homepage |     -     |
-|                      |          ASUS DisplayWidget Center           |      -      | Official Homepage |     -     |
-|   **매크로 및 작업 제어**    |       Elgato Stream Deck Software<br>        |      -      | Official Homepage |     -     |
-|                      |              Loupedeck Software              |      -      | Official Homepage |     -     |
-| **수랭 시스템 제어 및 모니터링** |            Aqua Coputer Aquasuite            |      -      | Official Homepage | RGB 제어 전권 |
-|    **오버클럭 모니터링**     |              ASUS Armoury Crate              |      -      | Official Homepage |     -     |
-|     **프린터 드라이버**     |              Epson EcoTank Pro               |      -      | Official Homepage |     -     |
-|    **NVMe 드라이버**     |        Samsung Magician & NVMe Driver        |      -      | Official Homepage |     -     |
+|         분류군          |                    소프트웨어                     |    라이선스     |      패키지 원본       |      비고      |
+| :------------------: | :------------------------------------------: | :---------: | :---------------: | :----------: |
+|       **운영체제**       |             Microsoft Windows 11             | Windows Pro |     Setup USB     |      -       |
+|     **칩셋 드라이버**      |     AMD X870E AM5 Chipset Driver Package     |      -      | Official Homepage |      -       |
+|     **그래픽 드라이버**     |           NVIDIA Game Ready Driver           |      -      | Official Homepage |      -       |
+|      **GPU 제어**      |      NVIDIA App<br>NVIDIA Control Panel      |      -      | Official Homepage |      -       |
+|                      |              ASUS GPU Tweak III              |      -      | Official Homepage |      -       |
+|                      |               MSI Mode Utility               |      -      | Official Homepage |      -       |
+|     **사운드 드라이버**     |     Realtek High Definition Audio Driver     |      -      | Official Homepage |      -       |
+|                      |       Neumann Control<br>Neumann MA 1        |      -      | Official Homepage |      -       |
+|                      |          Apogee Control 2 Software           |      -      | Official Homepage |      -       |
+|   **유선 네트워크 드라이버**   |             Intel 10G LAN Driver             |      -      | Official Homepage |      -       |
+|   **무선 네트워크 드라이버**   | Intel Wi-Fi Driver | Intel Bluetooth Driver |      -      | Official Homepage |      -       |
+|  **HID 드라이버 및 제어**   |              RealForce Connect               |      -      | Official Homepage |      -       |
+|                      |                  Wootility                   |      -      | Official Homepage |      -       |
+|                      |                 Logi Option+                 |      -      | Official Homepage |      -       |
+|                      |       Razer Synapse 4<br>Razer Chroma        |      -      | Official Homepage |      -       |
+|                      |          ASUS DisplayWidget Center           |      -      | Official Homepage |      -       |
+|   **매크로 및 작업 제어**    |       Elgato Stream Deck Software<br>        |      -      | Official Homepage |      -       |
+|                      |              Loupedeck Software              |      -      | Official Homepage |      -       |
+| **수랭 시스템 제어 및 모니터링** |            Aqua Coputer Aquasuite            |      -      | Official Homepage | RGB 제어 전권 부여 |
+|    **오버클럭 모니터링**     |              ASUS Armoury Crate              |      -      | Official Homepage |      -       |
+|     **프린터 드라이버**     |              Epson EcoTank Pro               |      -      | Official Homepage |      -       |
+|    **NVMe 드라이버**     |        Samsung Magician & NVMe Driver        |      -      | Official Homepage |      -       |
 
 #### Security
 
@@ -482,6 +482,7 @@ Utopia -.-> Rooms
 |  **AI 서비스**   |          ChatGPT          |          ChatGPT Pro          |      Winget       |                    -                    |
 |               |          Claude           |          Claude Max           |       Scoop       |                    -                    |
 |               |          Gemini           |        Google AI Ultra        |    Vivaldi PWA    |                    -                    |
+|               |                           |                               |                   |                                         |
 
 #### Creative
 
