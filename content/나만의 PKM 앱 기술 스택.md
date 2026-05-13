@@ -1,0 +1,79 @@
+---
+publish: true
+---
+
+# 나만의 PKM 앱 기술 스택
+
+---
+
+- **스택**: 웹 기술
+  - TSX 사용
+  - Monorepo 구조의 공유 코어 중심
+- **프레임워크**:
+  - **Elctron** + React/Vite: 데스크탑 앱 개발
+  - **Expo** + React Native: 모바일 앱 개발
+  - **Next.js** + Shared Core: 웹 앱 개발
+- **라이브러리**:
+  - **Remark**: Markdown AST
+  - **CodeMirror 6**: WYSIWYG 에디터
+  - **React-CodeMirror**: UI와 에디터의 래퍼
+  - **Yjs**: CRDT 실시간 동기화
+  - **Y-Websocket**: 중앙 서버 경유 데이터 동기화
+  - **Y-Codemirror.next**: 에디터와 동기화의 래퍼
+  - **Y-SQLite** (Electron) | **TinyBase** + **Persister-Yjs** (Expo): 동기화와 DB의 래퍼
+  - **Better-SQLite3** (Electron) | **Persister-Expo-SQLite** + **Drizzle-Orm** & **Expo-SQLite** (Expo): 인덱스 및 캐시 SQLite DB
+  - **React-Native-MMKV** (Expo): 모바일 세션 상태 저장
+  - **WA-SQLite** (Web): 웹 버전용 OPFS + SQLite DB
+  - **TanStack Query**: Server Fetch 캐싱 및 비동기 무효화
+  - **TanStack Virtual (react-virtual)**: 고성능 렌더링 엔진
+  - **QuickJS**: 샌드박스 플러그인 지원
+  - **Tailwind CSS**: 스타일링 시스템
+- **내장 기능**:
+  - WYSIWYG 실시간 미리보기
+  - CRDT 실시간 동기화
+  - 서버 사이드 동적 웹 게시 (플러그인 지원)
+  - 유저 플러그인 & 유저 스크립트
+  - 파일 암호화 (AES-256 사용)
+  - 테마 & CSS 스니펫
+  - 슬래시 커맨드 & 커맨드 팔레트
+  - JSON 벡터 기반 캔버스 및 SQLite 데이터베이스 쿼리 기능 (최후순위)
+- **내부 로직**:
+  - **모든 것은 파일이다**:
+    - 모든 데이터는 텍스트 기반 Markdown 파일로 기록됨
+    - 진실의 원본은 언제나 Markdown 파일
+  - **파일의 페이지 추상화**:
+    - 모든 파일의 프론트매터에는 UUID v4가 기록됨
+    - 저장소 내부의 논리적인 의미의 폴더 구조는 존재하지 않음
+    - 각 파일은 UUID의 8/4/4/4 식의 분할 디렉토리 위치를 가짐
+    - 이를 통해 최적화와 버전 관리 효율성을 확보함
+    - 파일의 이름은 마지막 12자리 ID
+    - 페이지 단위로 `Y.Doc`을 사용하며, Lazy Loading과 Viewport Loading 사용
+  - **트리 구조의 재구현**:
+    - 페이지의 `parent` 프론트매터의 링크로 부모 노트를 표현함
+    - `parent`는 오직 하나
+    - 이는 구조를 상징하며, 자체 파일 탐색기의 트리를 통해 표현됨
+  - **링크 관계 그래프 노드**:
+    - 페이지 본문의 링크를 통해 그래프 노드를 표현
+    - 이는 오직 관계만을 상징하며, 그래프의 노드 간 연결을 통해 표현됨
+  - **태그 기반 분류**:
+    - `tags` 프론트매터에만 기록할 수 있는 태그를 지원
+    - 본문에서 `#`을 사용 시 자동으로 프론트매터로 이동
+    - 이는 맥락을 상징하며, 그래프 노드의 색상으로 표현됨
+  - **AST의 블록 추상화**:
+    - Remark AST는 외부 SQLite DB에 블록으로 추상화되어 저장됨
+    - 모든 블록에는 UUID v4가 부여됨
+    - 콘텐츠 해시와 정규화 해시를 모두 사용
+    - LexoRank 계열 문자열 정렬 방식의 분수 인덱싱을 통해 재정렬 비용을 감소
+    - 내용의 해시와 추상화된 최소한의 AST를 SQLite에 저장하나, 이는 인덱싱과 캐싱 목적일 뿐 진실의 원천이 아님
+  - **수정 사항의 추적**:
+    - 자체 편집기 내부에서의 수정은 CRDT를 통해 작업 로그로 기록
+    - 외부 편집기로 인한 변경은 Diff 알고리즘으로 기존 UUID와 재매칭
+    - 본문과 프론트매터에는 텍스트 CRDT와 JSON CRDT를 구분하여 접목시킴
+    - `insert_block`, `move_block`, `merge_block`, `update_frontmatter` 등의 필드를 통해 작업 로그 추상화 레이어를 구현
+    - 파일의 삭제 시 물리적 삭제에 앞서 삭제 마커와 휴지통 처리를 우선하고, 동기화가 확인된 후 물리적으로 삭제
+  - **동기화 파이프라인**:
+    1. **저장**: 로컬에서 변경 사항 발생 시 로컬 SQLite의 미동기화 큐에 적재
+    2. **전송**: 서버와 연결될 시 CRDT 변경 이력을 중앙 서버로 전송
+    3. **갱신**: 전송된 변경 이력에 따라 중앙 서버 (`PostgreSQL + Object Storage`) 스냅샷을 업데이트
+    4. **배포**: WebSocket을 통해 CRDT 변경 이력을 다른 클라이언트로 배포
+    - 선택적 E2EE가 가능하나, E2EE 적용 시 데이터 분석 및 처리, 웹 게시 등 서버 사이드 기능을 사용하지 못함

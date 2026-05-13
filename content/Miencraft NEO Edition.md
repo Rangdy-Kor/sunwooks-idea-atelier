@@ -10,12 +10,12 @@ publish: true
 
 ---
 
-| **프로필**    | **Minecraft: NEO Edition**                                                                                                                               |     |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| **개발 언어**  | C++ (물리 연산 / 렌더링 엔진)<br>C# (인게임 콘텐츠 / 상위 차원 로직)                                                                                                          |     |
-| **플랫폼 언어** | C# (데스크탑 전용)<br>TypeScript (데스크탑 및 모바일)                                                                                                                  |     |
-| **플랫폼**    | Microsoft Windows | Xbox One | Xbox Series X|S<br>macOS | iPadOS | iOS<br>Linux | Android<br>Nintendo Switch | Nintendo Switch 2<br>PlayStation 5 |     |
-| **장르**     | 오픈 월드 | 샌드박스 | 서바이벌                                                                                                                                    |     |
+| **프로필**    | **Minecraft: NEO Edition**                                                                                                                               |
+| :--------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **개발 언어**  | C++ (물리 연산 / 렌더링 엔진)<br>C# (인게임 콘텐츠 / 상위 차원 로직)                                                                                                          |
+| **플랫폼 언어** | C# (데스크탑 전용)<br>TypeScript (데스크탑 및 모바일)                                                                                                                  |
+| **플랫폼**    | Microsoft Windows | Xbox One | Xbox Series X|S<br>macOS | iPadOS | iOS<br>Linux | Android<br>Nintendo Switch | Nintendo Switch 2<br>PlayStation 5 |
+| **장르**     | 오픈 월드 | 샌드박스 | 서바이벌                                                                                                                                    |
 
 > [!IMPORTANT] IMPORTANT<br>실제 구현 계획은 현재까지 존재하지 않으며, 개인적 취미 활동 및 설계 연습 목적으로 작성되었습니다.
 
