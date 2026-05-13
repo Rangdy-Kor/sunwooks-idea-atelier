@@ -22,9 +22,9 @@ publish: true
 
 | 페이지                                                     | 부모 노트                                           | 생성일                 | 수정일                 |
 | ------------------------------------------------------- | ----------------------------------------------- | ------------------- | ------------------- |
-| [[Paramount Workstation.md\|Paramount Workstation]]     | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:38:03 | 2026-05-11 11:05:04 |
-| [[Paramount Custom Laptop.md\|Paramount Custom Laptop]] | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:54:50 | 2026-05-08 13:50:06 |
-| [[Paramount Ultrabook.md\|Paramount Ultrabook]]         | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:24:09 | 2026-05-08 13:49:53 |
+| [[Paramount Workstation.md\|Paramount Workstation]]     | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:38:03 | 2026-05-12 10:03:11 |
+| [[Paramount Custom Laptop.md\|Paramount Custom Laptop]] | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:54:50 | 2026-05-12 10:04:54 |
+| [[Paramount Ultrabook.md\|Paramount Ultrabook]]         | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:24:09 | 2026-05-12 10:04:33 |
 | [[Paramount Tablet.md\|Paramount Tablet]]               | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:32:07 | 2026-05-08 13:49:26 |
 | [[Paramount Smartphone.md\|Paramount Smartphone]]       | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:35:22 | 2026-05-08 13:55:23 |
 | [[Paramount Smart Watch.md\|Paramount Smart Watch]]     | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:43:21 | 2026-05-08 14:01:50 |
