@@ -10,7 +10,7 @@ publish: true
   - TSX 사용
   - Monorepo 구조의 공유 코어 중심
 - **프레임워크**:
-  - **Elctron** + React/Vite: 데스크탑 앱 개발
+  - **Electron** + React/Vite: 데스크탑 앱 개발
   - **Expo** + React Native: 모바일 앱 개발
   - **Next.js** + Shared Core: 웹 앱 개발
 - **라이브러리**:
