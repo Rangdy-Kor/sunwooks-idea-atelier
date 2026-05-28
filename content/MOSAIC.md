@@ -6,7 +6,7 @@ publish: true
 
 ---
 
-> [!IMPORTANT] Maximal. Organic. Scalable. Accessible. Intuitive. Consistent. <br>HTML 없이도 표현을 자유롭게
+> [!IMPORTANT] Maximal. Organic. Scalable. Accessible. Intuitive. Consistent. <br>HTML 없이도 표현을 자유롭게, 렌더러 없이도 읽을 수 있게
 
 ## 규칙
 
@@ -36,6 +36,17 @@ publish: true
 
 - `${Content}` ==> `__Free Input Space (String)__`
 - `${Value}` ==> `__Free Input Space (Float)__`
+- `${Indent}` ==> Recommended: `__1 or More TAB Character__`
+  - `__1 or More TAB Character__`
+  - `__1 or More Space Character__`
+
+### 구조
+
+---
+
+- **줄바꿈**: 기본적으로는 CommonMark와 동일하게 두 번 개행하거나 줄 뒤에 역슬래시 혹은 공백 문자 두 번을 입력하여 가능하나, 렌더러는 이를 선택적으로 Soft Breaks 옵션으로 변경할 수 있다.
+- **이스케이프**: 역슬래시를 통해 문자 단위로 이스케이프할 수 있으며, 역슬래시를 두 번 입력하여 리터럴 역슬래시를 삽입할 수 있다. 이케이프된 문자는 문법의 해석 대상에서 제외된다.
+- **중첩 문법**: 중첩 문법은 가장 바깥쪽 문법부터 안쪽의 문법 순으로 적용된다. 예를 들어, `~++red | Content++~`의 경우 밑줄은 렌더러 기본 색상으로 표시되나, `++red | ~Content~++`의 경우 밑줄 또한 빨간색이 된다.
 
 ### 텍스트
 
@@ -115,6 +126,7 @@ _${Content}_
 2. **코드 블록과의 토큰 충돌**:
    - 물결표 3개라는 토큰은 충돌하나 이는 상태 머신을 통해 닫히는 쌍의 존재 유무를 확인하여 구분 가능하다.
    - CommonMark에서 볼드 및 이탤릭, 그리고 구분선의 다른 표기 (`***`) 또한 같은 토큰을 사용한다.
+   - 다른 대안 토큰을 적용할 경우 시각적 연속성과 조합 규칙의 일관성이 훼손된다.
 
 ---
 
@@ -292,9 +304,6 @@ _${Content}_
 
 **자리 표시자**:
 
-- `${Indent}` ==> Recommended: `__1 or More TAB Character__`
-  - `__1 or More TAB Character__`
-  - `__1 or More Space Character__`
 - `${FirstOrderedCharacter}` ==>
   - `1`
   - `A`
@@ -440,6 +449,27 @@ ${Indent}- [:${Emoji}] {Content:Nested}
 	1. (일반 리스트 섞어쓰기)
 		- [:⌛] 검토 중 (체크 리스트 섞어쓰기)
 - [:🔥] 긴급 수정 (사용자 자유 지정)
+```
+
+### 헤딩
+
+---
+
+**헤딩**:
+
+```
+# ${Content:H1}
+## ${Content:H2}
+### ${Content:H3}
+#### ${Content:H4}
+##### ${Content:H5}
+###### ${Content:H6}
+
+${Content:H1}
+====
+
+${Content:H2}
+----
 ```
 
 ### 표
@@ -604,8 +634,7 @@ ${Indent}- [:${Emoji}] {Content:Nested}
 |<< ㄷ자 병합 시도 | >|
 |< >| >|
 
-병합 영역은 하나의 연속된 직사각형 영역만 허용함
-
+병합 영역은 하나의 연속된 직사각형 영역만 허용한다. 
 
 |<Ghoughpteighbteau | tchoghs>|
 
@@ -626,7 +655,7 @@ ${Indent}- [:${Emoji}] {Content:Nested}
 
 **자리 표시자**: \`
 
-- `${ProgramingLanguage}` ==> \`**Any Programing Language (Python, JavaScript, Bash...)**
+- `${ProgramingLanguage}` ==> \`**Any Programing Language (python, javascript, bash...)**
 - `${ProgramingCode}` ==> `__Programing Code for that Language__`
 
 ---
@@ -663,6 +692,19 @@ ${ProgramingCode:SyntaxHighlighting}
 `````
 
 (...)
+
+~~~$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+~~~
+
+~~~~$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+~~~~
+
+
+~~~~~$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+~~~~~
 ``````
 
 **예시**:
@@ -686,8 +728,8 @@ if (age >= 19) {
 
 **자리 표시자**:
 
-- `${MarkupLanguage}` ==> Default: LaTeX
-  - \`**Any Markup Language (HTML, LaTeX, Markdown...)**
+- `${MarkupLanguage}` ==> Default: `latex`
+  - \`**Any Markup Language (html, latex, markdown...)**
 - `${MarkupCode}` ==> `__Markup Code for that Language__`
 
 ---
@@ -710,7 +752,7 @@ $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 
 ```
 $$$(MarkupLanguage)
-${MarkupCode:Render}
+${MarkupCode:GenericRender}
 $$
 
 $$$$(MarkupLanguage)
@@ -727,7 +769,7 @@ $$$$
 **예시**:
 
 ```
-$$$html
+$$html
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -742,15 +784,15 @@ $$$html
 
     <main>
         <p>이것은 <strong>HTML</strong>의 기본 예제입니다.</p>
-        <a href="https://www.w3.org/TR/2011/WD-html5-20110405" class="btn" target="_blank">더 알아보기</a>
+        <a href="https://www.w3.org/TR/2011/WD-html5-20110405" target="_blank">더 알아보기</a>
     </main>
 
 </body>
 </html>
-$$$
+$$
 ```
 
-### 보조 자료
+### 문서 요소
 
 ---
 
@@ -758,38 +800,175 @@ $$$
 
 ---
 
+**자리 표시자**:
+
+- `${Protocol}` ==> Default: `https://` (명세 편의 상 구분자 포함)
+  - `https://`
+  - `http://`
+  - `mailto:`
+  - `tel:`
+  - `sms:`
+  - `sftp://`
+- `${URI}` ==> `__Any URI for the Protocol__`
+
+---
+
+**외부 링크**:
+
+```
+[${Protocol}${URI}]
+[${Content:Alias](${Protocol}${URI})
+```
+
+**예시**:
+
+```
+[https://example.com]
+
+[이곳으로 연락주세요](mailto:info@example.com)
+```
+
 #### 각주
 
 ---
 
-#### 인용구
+**인라인 각주**:
+
+```
+[^..](${Content:ContentWithAutoCountingHeader})
+[^${Content:Header}](${Content:ContentWithManuallyHeader})
+```
+
+**예시**:
+
+```
+[^..](자동 순번 열거되는 인라인 각주)
+[^A](수동 문자 지정되는 인라인 각주)
+
+자동 순번 열거는 문서 렌더 순서 기준이다. 
+```
 
 ---
+
+**블록형 각주**:
+
+```
+[^${Content:Header}]
+
+[^${Content:Header}]: ${Content}
+```
+
+```
+[^각주]
+
+[^각주]: 블록형 각주는 자동 순번 열거 기능이 없다. 
+
+블록형 각주와 인라인 각주가 동시에 존재할 시 블록형 각주로 덮어씌워지며, 블록형 각주의 여러 정의가 존재할 경우 마지막 정의가 우선시된다. 
+```
+
+#### 인용
+
+---
+
+**인용구**:
+
+```
+> ${Content}
+${Indent} {Content:Line-broken}
+${Indent}> ${Content:Nested}
+```
+
+**예시**:
+
+```
+> (...)
+	> (TAB 문자로 들여쓰기 (추천))
+    > (공백 문자로 들여쓰기)
+> (...)
+	(요소 내 줄바꿈)
+	> (하위 인용구 시작)
+```
 
 #### 콜아웃
 
 ---
 
-### 문서 구조
+**자리 표시자**:
+
+- `${CalloutMark}` ==>
+  - `Info`
+  - `Important`
+  - `Warning`
+  - `Error`
+  - `Debug`
+- `${Emoji}` ==> `__Any Emoji__`
 
 ---
 
-#### 구분선
+**기본 콜아웃**:
+
+```
+> [!${CalloutMark}] ${Content:Header}
+> ${Content}
+```
+
+**예시**:
+
+```
+> [!Important] 중요
+> 실제로 개발할 계획이 없으며, 단순 설계 문서입니다.
+
+콜아웃 마크는 대소문자를 구분하지 않으나, 첫 글자를 대문자 형태로 입력하는 것을 권장한다. 
+콜아웃 내부에서의 인라인 문법은 대중적인 인용구 내부에서의 규칙과 동일하다. 
+```
 
 ---
 
-#### 아코디언
+**확장 콜아웃**:
+
+```
+> [:${Emoji}] ${Content:Header}
+> ${Content}
+```
+
+**예시**:
+
+```
+> [:🐞] 버그 리포트
+> XSS 취약점 존재
+```
+
+#### 기타
 
 ---
 
-### 레이아웃
+**구분선**:
+
+```
+---
+----
+-----
+------
+-------
+--------
+---------
+(...)
+```
 
 ---
 
-### 프론트매터
+**아코디언**:
 
----
+```
+:::${Content:Header}
+${Content}
+:::
+```
 
-### 매크로
+**예시**:
 
----
+```
+:::[펼치기 / 접기]
+이곳의 내용은 평소에는 보이지 않다가 헤더를 누를 때 아래로 펼쳐지며 나타납니다. 
+:::
+```
