@@ -280,7 +280,7 @@ _${Content}_
 
 1. **토큰의 기타 충돌 가능성**:
    - URL 등지에서는 단일 백분율 기호 (`%`)는 유니코드 인코딩에 흔히 사용되나 이중 연속 백분율 기호는 사용 사례가 그에 비해 현저히 적다.
-   - MOSAIC에서 URL은 링크 문법에 사용되는 것은 전제로 하며 이는 파싱 우선 순위를 통해 충돌을 해결 가능하다.
+   - MOSAIC에서 URL은 링크 문법에 사용되는 것은 전제로 하며, 해당 경우 파싱 우선 순위를 통해 충돌을 해결 가능하다.
 
 ### 리스트
 
@@ -620,13 +620,135 @@ ${Indent}- [:${Emoji}] {Content:Nested}
 
 ---
 
-#### 스크립트
+#### 프로그래밍
 
 ---
+
+**자리 표시자**: \`
+
+- `${ProgramingLanguage}` ==> \`**Any Programing Language (Python, JavaScript, Bash...)**
+- `${ProgramingCode}` ==> `__Programing Code for that Language__`
+
+---
+
+**인라인 프로그래밍 코드**:
+
+```
+`${ProgramingCode:AccentColor}`
+``${ProgramingCode:AccentColor}``
+```
+
+**예시**:
+
+```
+`const` 키워드를 사용하여 상수를 선언하세요. 
+```
+
+---
+
+**프로그래밍 코드 블록**:
+
+``````
+```$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+```
+
+````$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+````
+
+
+````$(ProgramingLanguage)
+${ProgramingCode:SyntaxHighlighting}
+`````
+
+(...)
+``````
+
+**예시**:
+
+````
+```javascript
+const name = "John";
+let age = 20;
+
+if (age >= 19) {
+	console.log(`${name}은 ${age}살이므로 미성년자입니다.`)
+} else {
+	console.log(`${name}은 ${age}세이므로 성인입니다.`)
+}
+```
+````
 
 #### 마크업
 
 ---
+
+**자리 표시자**:
+
+- `${MarkupLanguage}` ==> Default: LaTeX
+  - \`**Any Markup Language (HTML, LaTeX, Markdown...)**
+- `${MarkupCode}` ==> `__Markup Code for that Language__`
+
+---
+
+**인라인 프로그래밍 코드**:
+
+```
+$${MarkupCode:Render:OnlyLaTeX}$
+```
+
+**예시**:
+
+```
+$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
+```
+
+---
+
+**프로그래밍 코드 블록**:
+
+```
+$$$(MarkupLanguage)
+${MarkupCode:Render}
+$$
+
+$$$$(MarkupLanguage)
+${MarkupCode:Render}
+$$$
+
+$$$$$(MarkupLanguage)
+${MarkupCode:Render}
+$$$$
+
+(...)
+```
+
+**예시**:
+
+```
+$$$html
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 웹페이지 예시</title>
+</head>
+<body>
+
+    <header>
+        <h1>안녕하세요!</h1>
+    </header>
+
+    <main>
+        <p>이것은 <strong>HTML</strong>의 기본 예제입니다.</p>
+        <a href="https://www.w3.org/TR/2011/WD-html5-20110405" class="btn" target="_blank">더 알아보기</a>
+    </main>
+
+</body>
+</html>
+$$$
+```
 
 ### 보조 자료
 
