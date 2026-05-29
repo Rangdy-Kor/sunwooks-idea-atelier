@@ -6,7 +6,17 @@ publish: true
 
 ---
 
-> [!IMPORTANT] Maximal. Organic. Scalable. Accessible. Intuitive. Consistent. <br>HTML 없이도 표현을 자유롭게, 렌더러 없이도 읽을 수 있게
+> [!IMPORTANT] Maximal. Organic. Scalable. Accessible. Intuitive. Consistent. <br>HTML 없이도 표현을 자유롭게, 렌더러 없이도 인간이 읽을 수 있게
+
+## 철학
+
+---
+
+1. MOSAIC는 파서의 구현 편의보다 인간의 읽기 경험을 우선한다.
+2. MOSAIC는 직관적인 추론과 자연스러운 작성을 위해 일부 토큰 충돌을 의도적으로 허용한다.
+3. MOSAIC는 모호성의 완전한 제거보다 인간 친화적인 제한을 추구한다.
+4. MOSAIC는 본문에 HTML을 삽입하지 않고도 풍부한 표현이 가능한 평문 문서를 지향한다.
+5. MOSAIC는 철학적 일관성을 위해 외부 Markdown 확장과의 호환성보다 자체 규칙을 우선시한다.
 
 ## 규칙
 
@@ -28,6 +38,17 @@ publish: true
 4. 글쓰기의 흐름을 방해하지 않는가?
 5. 단순 정규표현식 및 상태 머신으로 파싱이 불가능할 수준으로 어렵지 않은가?
 
+## 비목표
+
+---
+
+- Pandoc과의 호환은 목표가 아니다.
+- AST의 완전 결정성은 목표가 아니다.
+- 모든 자연어와의 문법적 모호성 제거는 목표가 아니다.
+- WYSIWYG 친화성은 우선순위가 아니다.
+- XML 스타일의 명시적 속성값 문법은 지양한다.
+- JSX 문법의 직접적인 본문 삽입 지원은 지원하지 않으며, 필요 시 코드 블록 내부에서만 제한적으로 사용할 수 있다.
+
 ## 문법
 
 ---
@@ -45,7 +66,7 @@ publish: true
 ---
 
 - **줄바꿈**: 기본적으로는 CommonMark와 동일하게 두 번 개행하거나 줄 뒤에 역슬래시 혹은 공백 문자 두 번을 입력하여 가능하나, 렌더러는 이를 선택적으로 Soft Breaks 옵션으로 변경할 수 있다.
-- **이스케이프**: 역슬래시를 통해 문자 단위로 이스케이프할 수 있으며, 역슬래시를 두 번 입력하여 리터럴 역슬래시를 삽입할 수 있다. 이케이프된 문자는 문법의 해석 대상에서 제외된다.
+- **이스케이프**: 역슬래시를 통해 문자 단위로 이스케이프할 수 있으며, 역슬래시를 두 번 입력하여 리터럴 역슬래시를 삽입할 수 있다. 이스케이프된 문자는 문법의 해석 대상에서 제외된다.
 - **중첩 문법**: 중첩 문법은 가장 바깥쪽 문법부터 안쪽의 문법 순으로 적용된다. 예를 들어, `~++red | Content++~`의 경우 밑줄은 렌더러 기본 색상으로 표시되나, `++red | ~Content~++`의 경우 밑줄 또한 빨간색이 된다.
 
 ### 텍스트
@@ -110,7 +131,7 @@ _${Content}_
 2. **단순 스타일링의 필요성**: `<u>`가 아닌 의미론적 태그인 `<ins>` 사용한다.
 3. **토큰의 직관성**:
    - `__` / `_`의 경우 볼드 / 이탤릭의 표현 방식으로 CommonMark 명세에 자리 잡고 있으며 MOSAIC에도 마찬가지이다.
-   - `~`는 이미 볼드 / 이탤릭의 별표 쌍처럼 취소선과 토큰 쌍을 이루기에 충분히 직관적이라 판단하였다.
+   - `~`는 이미 볼드 + 이탤릭의 별표 쌍처럼 취소선과 토큰 쌍을 이루기에 충분히 직관적이라 판단하였다.
 
 ---
 
@@ -166,9 +187,9 @@ _${Content}_
 
 1. **문법의 직관성**:
    - 속성 기반 명시적 문법은 개발 관련 종사자에게는 직관적일지 언정 일반인에게는 비직관적이고 평문 기반 가독성 또한 떨어진다.
-   - 단순 `${Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
+   - 단순 `${Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 베이스 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
    - `${Content:Ruby}`를 감싸는 `^^`는 하단 루비 문자와의 구분을 위해 필수적이다.
-   - 이는 수직선을 통해 가독성의 저하를 최소화하고 직관성을 향상한 절충안이며, 완벽한 표현 방법이 아니라는 것을 인지 중이다.
+   - 이는 수직선을 통해 가독성의 저하를 최소화하고 직관성을 향상한 절충안이며, 완벽한 표현 방법이 아니라는 것을 인지 중이다. 허나 다른 경량 문법은 하단 루비 문자와 문법 구조가 완전히 다르거나, 베이스 문자열이 무엇인지 해석이 불가능하거나, 평문 기반 가독성이 떨어지는 경우가 많아 이러한 문법을 선택하였다.
 
 ---
 
@@ -184,6 +205,7 @@ _${Content}_
    - 속성 기반 명시적 문법은 개발 관련 종사자에게는 직관적일지 언정 일반인에게는 비직관적이고 평문 기반 가독성 또한 떨어진다.
    - 단순 `${Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
    - `${Content:Ruby}`를 감싸는 `,,`는 상단 루비 문자와의 구분을 위해 필수적이다.
+   - 이는 수직선을 통해 가독성의 저하를 최소화하고 직관성을 향상한 절충안이며, 완벽한 표현 방법이 아니라는 것을 인지 중이다. 허나 다른 경량 문법은 상단 루비 문자와 문법 구조가 완전히 다르거나, 베이스 문자열이 무엇인지 해석이 불가능하거나, 평문 기반 가독성이 떨어지는 경우가 많아 이러한 문법을 선택하였다.
 
 ---
 
@@ -329,7 +351,7 @@ _${Content}_
 
 ```
 - ${Content}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 ${Indent}- ${Content:Nested}
 ```
 
@@ -350,7 +372,7 @@ ${Indent}- ${Content:Nested}
 
 ```
 ${FirstOrderedCharacter}. {Contents}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 .. {Contents:Nexted}
 ${Indent}. {Content:Nested}
 ${Indent}${FirstOrderedCharacter}. {Content:Started}
@@ -375,7 +397,7 @@ ${Indent}${FirstOrderedCharacter}. {Content:Started}
 
 ```
 ${AnyOrderedCharacter}. {Contents}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 ${AnyOrderedCharacter}. {Contents:NextedOrFixed}
 ${Indent}${AnyOrderedCharacter}. {Content:NextedOrStarted}
 ```
@@ -412,7 +434,7 @@ F. (강제 순번 변경)
 
 ```
 - [${CheckMark}] ${Content}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 ${Indent}- [${CheckMark}] {Content:Nested}
 ```
 
@@ -434,7 +456,7 @@ ${Indent}- [${CheckMark}] {Content:Nested}
 
 ```
 - [:${Emoji}] ${Content}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 ${Indent}- [:${Emoji}] {Content:Nested}
 ```
 
@@ -655,16 +677,16 @@ ${Content:H2}
 
 **자리 표시자**: \`
 
-- `${ProgramingLanguage}` ==> \`**Any Programing Language (python, javascript, bash...)**
-- `${ProgramingCode}` ==> `__Programing Code for that Language__`
+- `${ProgrammingLanguage}` ==> \`**Any Programming Language (python, javascript, bash...)**
+- `${ProgrammingCode}` ==> `__Programming Code for that Language__`
 
 ---
 
 **인라인 프로그래밍 코드**:
 
 ```
-`${ProgramingCode:AccentColor}`
-``${ProgramingCode:AccentColor}``
+`${ProgrammingCode:AccentColor}`
+``${ProgrammingCode:AccentColor}``
 ```
 
 **예시**:
@@ -678,32 +700,32 @@ ${Content:H2}
 **프로그래밍 코드 블록**:
 
 ``````
-```$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+```$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 ```
 
-````$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+````$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 ````
 
 
-````$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+````$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 `````
 
 (...)
 
-~~~$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+~~~$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 ~~~
 
-~~~~$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+~~~~$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 ~~~~
 
 
-~~~~~$(ProgramingLanguage)
-${ProgramingCode:SyntaxHighlighting}
+~~~~~$(ProgrammingLanguage)
+${ProgrammingCode:SyntaxHighlighting}
 ~~~~~
 ``````
 
@@ -734,7 +756,7 @@ if (age >= 19) {
 
 ---
 
-**인라인 프로그래밍 코드**:
+**인라인 마크업 코드**:
 
 ```
 $${MarkupCode:Render:OnlyLaTeX}$
@@ -748,7 +770,7 @@ $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 
 ---
 
-**프로그래밍 코드 블록**:
+**마크업 코드 블록**:
 
 ```
 $$$(MarkupLanguage)
@@ -874,7 +896,7 @@ $$
 
 ```
 > ${Content}
-${Indent} {Content:Line-broken}
+${Indent} ${Content:Line-broken}
 ${Indent}> ${Content:Nested}
 ```
 
