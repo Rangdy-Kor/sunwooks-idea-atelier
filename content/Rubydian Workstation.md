@@ -2,9 +2,13 @@
 publish: true
 ---
 
-# Paramount Workstation
+# Rubydian Workstation
 
 ---
+
+| 프로필        | Rubydian Workstation                                 |
+| ---------- | ---------------------------------------------------- |
+| **디자인 색상** | Jet Black (Main Color)<br>Pigeon Blood (Point Color) |
 
 ## Hardware
 
@@ -28,74 +32,72 @@ publish: true
 
 ---
 
-**CPU**
+**CPU**:
 
-- **BIOS**
-  - PBO Mode → Advanced
-  - Curve Optimizer → Negative \[-15 ~ -20]
-  - PBO Limits → Motherboard
-  - L3 Cache Priortization → Auto
-  - Medium Load Booster → Enabled
-  - Max CPU Boost Clock Override → Enabled (Positive) \[+150 ~ +200]
-- **Windows 제어판**
-  - 전원 관리 옵션 → 최고의 성능 \[`powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61`]
+- **BIOS**:
+  - PBO Mode --> Advanced
+  - Curve Optimizer --> Negative {-15 ~ 20}
+  - PBO Limites --> Motherboard
+  - L3 Cache Priortization --> Auto
+  - Medium Load Booster --> Enabled
+  - Max CPU Boost Clock Override --> Enabled (Positive) {+150 ~ +200}
+- **Windows 제어판**:
+  - 전원 관리 옵션 --> 최고의 성능 {`powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61`}
 
-**GPU**
+**GPU**:
 
-- **Physical**
-  - Dual BIOS Switch → P-Mode
-- **BIOS**
-  - Re-Size BAR → Enabled
-  - PCIe Link Speed Enforcement → Fix Gen 5
-  - Interrupt Steering → Auto
-- **ASUS GPU Tweak III**
-  - Power Target → 110% ~ 120%
-  - GPU Boost Clock → +50MHz ~ +100MHz
-  - Memory Clock → +300MHz ~ +500MHz
-- **MSI Mode Utility**
-  - Interrupt Mode → MSI
-  - Interrupt Priority → High
-- **NVIDIA 제어판**
-  - 안티앨리어싱 → 응용 프로그램 제어
-  - 이방성 필터링 → 응용 프로그램 제어
-  - 전원 관리 모드 → 최고 성능 선호
-  - 저지연 모드 → 울트라
-- **Windows 설정**
-  - 하드웨어 가속 GPU 일정 예약 → Enabled
+- **Physical**:
+  - Dual BIOS Switch --> P-Mode
+- **BIOS**:
+  - Re-Size BAR --> Enabled
+  - PCIe Link Speed Enforcement --> Fix Gen 5
+  - Interrupt Steering --> Auto
+- **ASUS GPU Tweak III**:
+  - Power Target --> 110% ~ 120%
+  - GPU Boost Clock --> +50MHz ~ +100MHz
+  - Memory Clock --> +300MHz ~ +500MHz
+- **MSI Mode Utility**:
+  - Interrupt Mode --> MSI
+  - Interrupt Priority --> High
+- **NVIDIA App**:
+  - 전원 관리 모드 --> 최고 성능 선호
+  - 저지연 모드 --> 울트라
+- **Windows 설정**:
+  - 하드웨어 가속 GPU 일정 예약 --> Enabled
 
-**RAM**
+**RAM**:
 
-- **BIOS**
-  - Ai Overclock Tuner → EXPO Tweaked
-  - DRAM Frequency → 6000MHz
-  - UCLK DIV1 MODE → \[UCLK=MCLK (1:1)]
-  - Memory Context Restore → Enabled
-  - Fixed SoC Voltage → Fixed \[1.20V ~ 1.25V]
-  - Power Down Mode → Disabled
-  - DRAM Performance Mode → Performance Mode
+- **BIOS**:
+  - Ai Overclock Tuner --> EXPO Tweaked
+  - DRAM Frequency --> 6000MHz
+  - UCLK DIV1 MODE --> UCLK=MCLK (1:1)
+  - Memory Context Restore --> Enabled
+  - Fixed SoC Voltage --> Fixed {1.20V ~ 1.25V}
+  - Power Down Mode --> Disabled
+  - DRAM Performance Mode --> Performance Mode
   - TCL → 30
   - TRCD → 36
   - TRP → 36
   - TRAS → 30 ~ 48
   - TREFI → 65535
 
-**SSD**
+**SSD**:
 
-- **Physical**
-  - RAID → No RAID \[2TB → System & Program Setup | 8TB → User Data & Data Save]
-- **BIOS**
-  - PCIe Bandwidth Configuration → Fix Gen 5
-  - NVMe RAID Mode → Disabled
-  - ASPM → Disabled
-  - APST → Disabled
-  - L1 Substates → Disabled
-  - M.2 Link Power Management → Disabled
-- **Samsung Magician**
-  - Full Power Mode → Enabled
-  - Write-Cache Buffering → Enabled
-  - Over-Provisioning (Only 8TB) → 5%~10%
+- **Physical**:
+  - RAID --> No RAID {2TB -> System & Program Setup | 8TB -> User Data & Data Save}
+- **BIOS**:
+  - PCIe Bandwidth Configuration --> Fix Gen 5
+  - NVMe RAID Mode --> Disabled
+  - ASPM --> Disabled
+  - APST --> Disabled
+  - L1 Substates --> Disabled
+  - M.2 Link Power Management --> Disabled
+- **Samsung Magician**:
+  - Full Power Mode --> Enabled
+  - Write-Cache Buffering --> Enabled
+  - Over-Provisioning (Only 8TB Storage) --> 5% ~ 10%
 
-**Motherboard**
+**Motherboard**:
 
 - **Slot**
   - PCIe 5.0 x16\_1 ← GPU
@@ -419,30 +421,30 @@ Utopia -.-> Rooms
 
 ---
 
-|         분류군          |                    소프트웨어                     |    라이선스     |      패키지 원본       |      비고      |
-| :------------------: | :------------------------------------------: | :---------: | :---------------: | :----------: |
-|       **운영체제**       |             Microsoft Windows 11             | Windows Pro |     Setup USB     |      -       |
-|     **칩셋 드라이버**      |     AMD X870E AM5 Chipset Driver Package     |      -      | Official Homepage |      -       |
-|     **그래픽 드라이버**     |           NVIDIA Game Ready Driver           |      -      | Official Homepage |      -       |
-|      **GPU 제어**      |      NVIDIA App<br>NVIDIA Control Panel      |      -      | Official Homepage |      -       |
-|                      |              ASUS GPU Tweak III              |      -      | Official Homepage |      -       |
-|                      |               MSI Mode Utility               |      -      | Official Homepage |      -       |
-|     **사운드 드라이버**     |     Realtek High Definition Audio Driver     |      -      | Official Homepage |      -       |
-|                      |       Neumann Control<br>Neumann MA 1        |      -      | Official Homepage |      -       |
-|                      |          Apogee Control 2 Software           |      -      | Official Homepage |      -       |
-|   **유선 네트워크 드라이버**   |             Intel 10G LAN Driver             |      -      | Official Homepage |      -       |
-|   **무선 네트워크 드라이버**   | Intel Wi-Fi Driver | Intel Bluetooth Driver |      -      | Official Homepage |      -       |
-|  **HID 드라이버 및 제어**   |              RealForce Connect               |      -      | Official Homepage |      -       |
-|                      |                  Wootility                   |      -      | Official Homepage |      -       |
-|                      |                 Logi Option+                 |      -      | Official Homepage |      -       |
-|                      |       Razer Synapse 4<br>Razer Chroma        |      -      | Official Homepage |      -       |
-|                      |          ASUS DisplayWidget Center           |      -      | Official Homepage |      -       |
-|   **매크로 및 작업 제어**    |       Elgato Stream Deck Software<br>        |      -      | Official Homepage |      -       |
-|                      |              Loupedeck Software              |      -      | Official Homepage |      -       |
-| **수랭 시스템 제어 및 모니터링** |            Aqua Coputer Aquasuite            |      -      | Official Homepage | RGB 제어 전권 부여 |
-|    **오버클럭 모니터링**     |              ASUS Armoury Crate              |      -      | Official Homepage |      -       |
-|     **프린터 드라이버**     |              Epson EcoTank Pro               |      -      | Official Homepage |      -       |
-|    **NVMe 드라이버**     |        Samsung Magician & NVMe Driver        |      -      | Official Homepage |      -       |
+|         분류군          |                    소프트웨어                     |    라이선스     |       패키지 원본       |      비고      |
+| :------------------: | :------------------------------------------: | :---------: | :----------------: | :----------: |
+|       **운영체제**       |             Microsoft Windows 11             | Windows Pro | Official Setup USB |      -       |
+|     **칩셋 드라이버**      |     AMD X870E AM5 Chipset Driver Package     |      -      | Official Homepage  |      -       |
+|     **그래픽 드라이버**     |           NVIDIA Game Ready Driver           |      -      | Official Homepage  |      -       |
+|      **GPU 제어**      |      NVIDIA App<br>NVIDIA Control Panel      |      -      | Official Homepage  |      -       |
+|                      |              ASUS GPU Tweak III              |      -      | Official Homepage  |      -       |
+|                      |               MSI Mode Utility               |      -      | Official Homepage  |      -       |
+|     **사운드 드라이버**     |     Realtek High Definition Audio Driver     |      -      | Official Homepage  |      -       |
+|                      |       Neumann Control<br>Neumann MA 1        |      -      | Official Homepage  |      -       |
+|                      |          Apogee Control 2 Software           |      -      | Official Homepage  |      -       |
+|   **유선 네트워크 드라이버**   |             Intel 10G LAN Driver             |      -      | Official Homepage  |      -       |
+|   **무선 네트워크 드라이버**   | Intel Wi-Fi Driver | Intel Bluetooth Driver |      -      | Official Homepage  |      -       |
+|  **HID 드라이버 및 제어**   |              RealForce Connect               |      -      | Official Homepage  |      -       |
+|                      |                  Wootility                   |      -      | Official Homepage  |      -       |
+|                      |                 Logi Option+                 |      -      | Official Homepage  |      -       |
+|                      |       Razer Synapse 4<br>Razer Chroma        |      -      | Official Homepage  |      -       |
+|                      |          ASUS DisplayWidget Center           |      -      | Official Homepage  |      -       |
+|   **매크로 및 작업 제어**    |       Elgato Stream Deck Software<br>        |      -      | Official Homepage  |      -       |
+|                      |              Loupedeck Software              |      -      | Official Homepage  |      -       |
+| **수랭 시스템 제어 및 모니터링** |            Aqua Coputer Aquasuite            |      -      | Official Homepage  | RGB 제어 전권 부여 |
+|    **오버클럭 모니터링**     |              ASUS Armoury Crate              |      -      | Official Homepage  |      -       |
+|     **프린터 드라이버**     |              Epson EcoTank Pro               |      -      | Official Homepage  |      -       |
+|    **NVMe 드라이버**     |        Samsung Magician & NVMe Driver        |      -      | Official Homepage  |      -       |
 
 #### Security
 
@@ -482,7 +484,6 @@ Utopia -.-> Rooms
 |  **AI 서비스**   |          ChatGPT          |          ChatGPT Pro          |      Winget       |                    -                    |
 |               |          Claude           |          Claude Max           |       Scoop       |                    -                    |
 |               |          Gemini           |        Google AI Ultra        |    Vivaldi PWA    |                    -                    |
-|               |                           |                               |                   |                                         |
 
 #### Creative
 

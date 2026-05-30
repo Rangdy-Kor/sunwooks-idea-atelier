@@ -22,7 +22,7 @@ publish: true
 
 | 페이지                                                     | 부모 노트                                           | 생성일                 | 수정일                 |
 | ------------------------------------------------------- | ----------------------------------------------- | ------------------- | ------------------- |
-| [[Paramount Workstation.md\|Paramount Workstation]]     | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:38:03 | 2026-05-12 10:03:11 |
+| [[Paramount Workstation.md\|Paramount Workstation]]     | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:38:03 | 2026-05-30 09:56:56 |
 | [[Paramount Custom Laptop.md\|Paramount Custom Laptop]] | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 12:54:50 | 2026-05-12 10:04:54 |
 | [[Paramount Ultrabook.md\|Paramount Ultrabook]]         | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:24:09 | 2026-05-12 10:04:33 |
 | [[Paramount Tablet.md\|Paramount Tablet]]               | [[Paramount Ecosystem.md\|Paramount Ecosystem]] | 2026-05-08 13:32:07 | 2026-05-08 13:49:26 |
