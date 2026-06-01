@@ -55,9 +55,9 @@ publish: true
 
 **자리 표시자**:
 
-- `${Content}` ==> `__Free Input Space (String)__`
-- `${Value}` ==> `__Free Input Space (Float)__`
-- `${Indent}` ==> Recommended: `__1 or More TAB Character__`
+- `{Content}` ==> `__Free Input Space (String)__`
+- `{Value}` ==> `__Free Input Space (Float)__`
+- `{Indent}` ==> Recommended: `__1 or More TAB Character__`
   - `__1 or More TAB Character__`
   - `__1 or More Space Character__`
 
@@ -80,8 +80,8 @@ publish: true
 **볼드**:
 
 ```
-**${Content}**
-__${Content}__
+**{Content}**
+__{Content}__
 ```
 
 **문제**:
@@ -93,8 +93,8 @@ __${Content}__
 **이탤릭**:
 
 ```
-*${Content}*
-_${Content}_
+*{Content}*
+_{Content}_
 ```
 
 **문제**:
@@ -106,7 +106,7 @@ _${Content}_
 **볼드 + 이탤릭**:
 
 ```
-***${Content}***
+***{Content}***
 ```
 
 ---
@@ -114,7 +114,7 @@ _${Content}_
 **취소선**:
 
 ```
-~~${Content}~~
+~~{Content}~~
 ```
 
 ---
@@ -122,7 +122,7 @@ _${Content}_
 **밑줄**:
 
 ```
-~${Content}~
+~{Content}~
 ```
 
 **문제**:
@@ -138,7 +138,7 @@ _${Content}_
 **취소선 + 밑줄**:
 
 ```
-~~~${Content}~~~
+~~~{Content}~~~
 ```
 
 **문제**:
@@ -154,7 +154,7 @@ _${Content}_
 **위 첨자:**
 
 ```
-^^${Content}^^
+^^{Content}^^
 ```
 
 **문제**:
@@ -166,7 +166,7 @@ _${Content}_
 **아래 첨자**:
 
 ```
-,,${Content},,
+,,{Content},,
 ```
 
 **문제**:
@@ -180,15 +180,15 @@ _${Content}_
 **루비 문자** (상단):
 
 ```
-;;${Content} | ^^${Content:Ruby}^^;;
+;;{Content} | ^^{Content:Ruby}^^;;
 ```
 
 **문제**:
 
 1. **문법의 직관성**:
    - 속성 기반 명시적 문법은 개발 관련 종사자에게는 직관적일지 언정 일반인에게는 비직관적이고 평문 기반 가독성 또한 떨어진다.
-   - 단순 `${Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 베이스 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
-   - `${Content:Ruby}`를 감싸는 `^^`는 하단 루비 문자와의 구분을 위해 필수적이다.
+   - 단순 `{Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 베이스 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
+   - `{Content:Ruby}`를 감싸는 `^^`는 하단 루비 문자와의 구분을 위해 필수적이다.
    - 이는 수직선을 통해 가독성의 저하를 최소화하고 직관성을 향상한 절충안이며, 완벽한 표현 방법이 아니라는 것을 인지 중이다. 허나 다른 경량 문법은 하단 루비 문자와 문법 구조가 완전히 다르거나, 베이스 문자열이 무엇인지 해석이 불가능하거나, 평문 기반 가독성이 떨어지는 경우가 많아 이러한 문법을 선택하였다.
 
 ---
@@ -196,15 +196,15 @@ _${Content}_
 **루비 문자** (하단):
 
 ```
-;;${Content} | ,,${Content:Ruby},,;;
+;;{Content} | ,,{Content:Ruby},,;;
 ```
 
 **문제**:
 
 1. **문법의 직관성**:
    - 속성 기반 명시적 문법은 개발 관련 종사자에게는 직관적일지 언정 일반인에게는 비직관적이고 평문 기반 가독성 또한 떨어진다.
-   - 단순 `${Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
-   - `${Content:Ruby}`를 감싸는 `,,`는 상단 루비 문자와의 구분을 위해 필수적이다.
+   - 단순 `{Content:Ruby}`를 감싸는 문법으로 설계할 시 어떤 문자열에 대한 루비 문자인지 파서가 해석 불가능하다.
+   - `{Content:Ruby}`를 감싸는 `,,`는 상단 루비 문자와의 구분을 위해 필수적이다.
    - 이는 수직선을 통해 가독성의 저하를 최소화하고 직관성을 향상한 절충안이며, 완벽한 표현 방법이 아니라는 것을 인지 중이다. 허나 다른 경량 문법은 상단 루비 문자와 문법 구조가 완전히 다르거나, 베이스 문자열이 무엇인지 해석이 불가능하거나, 평문 기반 가독성이 떨어지는 경우가 많아 이러한 문법을 선택하였다.
 
 ---
@@ -212,7 +212,7 @@ _${Content}_
 **스포일러**:
 
 ```
-##${Content}##
+##{Content}##
 ```
 
 **문제**:
@@ -225,7 +225,7 @@ _${Content}_
 **리터럴**:
 
 ```
-""${Content}""
+""{Content}""
 ```
 
 **문제**:
@@ -239,7 +239,7 @@ _${Content}_
 
 **자리 표시자**:
 
-- `${ColorCode}` ==> Default: `__CSS Color Name__`
+- `{ColorCode}` ==> Default: `__CSS Color Name__`
   - `#__Hex Code__`
   - `#__Short Hex Code__`
   - `#__Alpha Hex Code__`
@@ -251,7 +251,7 @@ _${Content}_
 **글자 색상**:
 
 ```
-++${ColorCode} | ${Content}++
+++{ColorCode} | {Content}++
 ```
 
 **예시**:
@@ -269,7 +269,7 @@ _${Content}_
 **하이라이트**:
 
 ```
-==${ColorCode} | ${Content}==
+=={ColorCode} | {Content}==
 ```
 
 **예시**:
@@ -288,7 +288,7 @@ _${Content}_
 
 **자리 표시자**:
 
-- `${Unit}` ==> Default: `rem`
+- `{Unit}` ==> Default: `rem`
   - `rem`
   - `em`
   - `px`
@@ -298,7 +298,7 @@ _${Content}_
 **글자 크기**:
 
 ```
-%%${Value}${Unit} | ${Content}%%
+%%{Value}{Unit} | {Content}%%
 ```
 
 **예시**:
@@ -326,19 +326,19 @@ _${Content}_
 
 **자리 표시자**:
 
-- `${FirstOrderedCharacter}` ==>
+- `{FirstOrderedCharacter}` ==>
   - `1`
   - `A`
   - `a`
   - `I`
   - \`i
-- `${SameTypedOrderedCharacter}` ==>
+- `{SameTypedOrderedCharacter}` ==>
   - \`**Same Typed Any Ordered Arabic Numeral**
   - `__Same Typed Any Ordered Uppercase Letter`
   - `__Same Typed Any Lowercase Letter__`
   - `__Same Typed Any Uppercase Roman Numeral__`
   - `__Same Typed Any Lowercase Roman Numeral__`
-- `${AnyOrderedCharacter}` ==>
+- `{AnyOrderedCharacter}` ==>
   - \`**Any Ordered Arabic Numeral**
   - `__Any Ordered Uppercase Letter`
   - `__Any Ordered Lowercase Letter__`
@@ -350,9 +350,9 @@ _${Content}_
 **순서 없는 리스트**:
 
 ```
-- ${Content}
-${Indent} ${Content:Line-broken}
-${Indent}- ${Content:Nested}
+- {Content}
+{Indent} {Content:Line-broken}
+{Indent}- {Content:Nested}
 ```
 
 **예시**:
@@ -371,12 +371,12 @@ ${Indent}- ${Content:Nested}
 **순서 있는 리스트** (자동 순번 열거):
 
 ```
-${FirstOrderedCharacter}. {Contents}
-${Indent} ${Content:Line-broken}
+{FirstOrderedCharacter}. {Contents}
+{Indent} {Content:Line-broken}
 .. {Contents:Nexted}
-${Indent}. {Content:Nested}
-${Indent}${FirstOrderedCharacter}. {Content:Started}
-..${SameTypedOrderedCharacter} {Content:Fixed}
+{Indent}. {Content:Nested}
+{Indent}{FirstOrderedCharacter}. {Content:Started}
+..{SameTypedOrderedCharacter} {Content:Fixed}
 ```
 
 **예시**:
@@ -396,10 +396,10 @@ ${Indent}${FirstOrderedCharacter}. {Content:Started}
 **순서 있는 리스트** (수동 순번 열거):
 
 ```
-${AnyOrderedCharacter}. {Contents}
-${Indent} ${Content:Line-broken}
-${AnyOrderedCharacter}. {Contents:NextedOrFixed}
-${Indent}${AnyOrderedCharacter}. {Content:NextedOrStarted}
+{AnyOrderedCharacter}. {Contents}
+{Indent} {Content:Line-broken}
+{AnyOrderedCharacter}. {Contents:NextedOrFixed}
+{Indent}{AnyOrderedCharacter}. {Content:NextedOrStarted}
 ```
 
 **예시**:
@@ -420,22 +420,22 @@ F. (강제 순번 변경)
 
 **자리 표시자**:
 
-- `${CheckMark}` ==>
+- `{CheckMark}` ==>
   - ` ` --> Todo
   - `/` --> Doing
   - `x` --> Done
   - `-` --> Cancel
   - `~` --> Review
-- `${Emoji}` ==> `__Any Emoji__`
+- `{Emoji}` ==> `__Any Emoji__`
 
 ---
 
 **기본 체크 리스트**:
 
 ```
-- [${CheckMark}] ${Content}
-${Indent} ${Content:Line-broken}
-${Indent}- [${CheckMark}] {Content:Nested}
+- [{CheckMark}] {Content}
+{Indent} {Content:Line-broken}
+{Indent}- [{CheckMark}] {Content:Nested}
 ```
 
 **예시**:
@@ -455,9 +455,9 @@ ${Indent}- [${CheckMark}] {Content:Nested}
 **확장 체크 리스트**:
 
 ```
-- [:${Emoji}] ${Content}
-${Indent} ${Content:Line-broken}
-${Indent}- [:${Emoji}] {Content:Nested}
+- [:{Emoji}] {Content}
+{Indent} {Content:Line-broken}
+{Indent}- [:{Emoji}] {Content:Nested}
 ```
 
 **예시**:
@@ -480,17 +480,17 @@ ${Indent}- [:${Emoji}] {Content:Nested}
 **헤딩**:
 
 ```
-# ${Content:H1}
-## ${Content:H2}
-### ${Content:H3}
-#### ${Content:H4}
-##### ${Content:H5}
-###### ${Content:H6}
+# {Content:H1}
+## {Content:H2}
+### {Content:H3}
+#### {Content:H4}
+##### {Content:H5}
+###### {Content:H6}
 
-${Content:H1}
+{Content:H1}
 ====
 
-${Content:H2}
+{Content:H2}
 ----
 ```
 
@@ -500,7 +500,7 @@ ${Content:H2}
 
 **자리 표시자**:
 
-- `${Indicator}` ==> `__3 or More Less  Hyphen__`
+- `{Indicator}` ==> `__3 or More Less  Hyphen__`
 
 #### 구조
 
@@ -509,7 +509,7 @@ ${Content:H2}
 **셀**:
 
 ```
-| ${Content} |
+| {Content} |
 ```
 
 **예시**:
@@ -540,8 +540,8 @@ ${Content:H2}
 **헤더**:
 
 ```
-| ${Content} |
-| ${Indicator} |
+| {Content} |
+| {Indicator} |
 ```
 
 **예시**:
@@ -574,8 +574,8 @@ ${Content:H2}
 **전역 정렬**:
 
 ```
-| ${Content:LeftAligned} | ${Content:CenterAligned} | ${Content:RightAligned} |
-| :${Indicator} | :${Indicator}: | ${Indicator}: |
+| {Content:LeftAligned} | {Content:CenterAligned} | {Content:RightAligned} |
+| :{Indicator} | :{Indicator}: | {Indicator}: |
 ```
 
 **예시**:
@@ -595,7 +595,7 @@ ${Content:H2}
 **지역 정렬**:
 
 ```
-|: ${Content:LeftAligned} |: ${Content:CenterAligned} :| ${Content:RightAligned} :|
+|: {Content:LeftAligned} |: {Content:CenterAligned} :| {Content:RightAligned} :|
 ```
 
 **예시**:
@@ -622,12 +622,12 @@ ${Content:H2}
 ---
 
 ```
-|< ${Content:HorizontalMerge} | >|
+|< {Content:HorizontalMerge} | >|
 
-|< ${Content:VerticalMerge} |
+|< {Content:VerticalMerge} |
 | >|
 
-|< ${Content:BidirectionalMerge} | |
+|< {Content:BidirectionalMerge} | |
 | | >|
 ```
 
@@ -677,16 +677,16 @@ ${Content:H2}
 
 **자리 표시자**: \`
 
-- `${ProgrammingLanguage}` ==> \`**Any Programming Language (python, javascript, bash...)**
-- `${ProgrammingCode}` ==> `__Programming Code for that Language__`
+- `{ProgrammingLanguage}` ==> \`**Any Programming Language (python, javascript, bash...)**
+- `{ProgrammingCode}` ==> `__Programming Code for that Language__`
 
 ---
 
 **인라인 프로그래밍 코드**:
 
 ```
-`${ProgrammingCode:AccentColor}`
-``${ProgrammingCode:AccentColor}``
+`{ProgrammingCode:AccentColor}`
+``{ProgrammingCode:AccentColor}``
 ```
 
 **예시**:
@@ -700,32 +700,32 @@ ${Content:H2}
 **프로그래밍 코드 블록**:
 
 ``````
-```$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+```{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 ```
 
-````$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+````{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 ````
 
 
-````$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+````{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 `````
 
 (...)
 
-~~~$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+~~~{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 ~~~
 
-~~~~$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+~~~~{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 ~~~~
 
 
-~~~~~$(ProgrammingLanguage)
-${ProgrammingCode:SyntaxHighlighting}
+~~~~{ProgrammingLanguage}
+{ProgrammingCode:SyntaxHighlighting}
 ~~~~~
 ``````
 
@@ -737,9 +737,9 @@ const name = "John";
 let age = 20;
 
 if (age >= 19) {
-	console.log(`${name}은 ${age}살이므로 미성년자입니다.`)
+	console.log(`{name}은 {age}살이므로 미성년자입니다.`)
 } else {
-	console.log(`${name}은 ${age}세이므로 성인입니다.`)
+	console.log(`{name}은 {age}세이므로 성인입니다.`)
 }
 ```
 ````
@@ -750,16 +750,16 @@ if (age >= 19) {
 
 **자리 표시자**:
 
-- `${MarkupLanguage}` ==> Default: `latex`
+- `{MarkupLanguage}` ==> Default: `latex`
   - \`**Any Markup Language (html, latex, markdown...)**
-- `${MarkupCode}` ==> `__Markup Code for that Language__`
+- `{MarkupCode}` ==> `__Markup Code for that Language__`
 
 ---
 
 **인라인 마크업 코드**:
 
 ```
-$${MarkupCode:Render:OnlyLaTeX}$
+{MarkupCode:Render:OnlyLaTeX}$
 ```
 
 **예시**:
@@ -773,16 +773,16 @@ $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 **마크업 코드 블록**:
 
 ```
-$$$(MarkupLanguage)
-${MarkupCode:GenericRender}
+$${MarkupLanguage}
+{MarkupCode:GenericRender}
 $$
 
-$$$$(MarkupLanguage)
-${MarkupCode:Render}
+$$${MarkupLanguage}
+{MarkupCode:Render}
 $$$
 
-$$$$$(MarkupLanguage)
-${MarkupCode:Render}
+$$$${MarkupLanguage}
+{MarkupCode:Render}
 $$$$
 
 (...)
@@ -824,22 +824,22 @@ $$
 
 **자리 표시자**:
 
-- `${Protocol}` ==> Default: `https://` (명세 편의 상 구분자 포함)
+- `{Protocol}` ==> Default: `https://` (명세 편의 상 구분자 포함)
   - `https://`
   - `http://`
   - `mailto:`
   - `tel:`
   - `sms:`
   - `sftp://`
-- `${URI}` ==> `__Any URI for the Protocol__`
+- `{URI}` ==> `__Any URI for the Protocol__`
 
 ---
 
 **외부 링크**:
 
 ```
-[${Protocol}${URI}]
-[${Content:Alias](${Protocol}${URI})
+[{Protocol}{URI}]
+[{Content:Alias]({Protocol}{URI})
 ```
 
 **예시**:
@@ -857,8 +857,8 @@ $$
 **인라인 각주**:
 
 ```
-[^..](${Content:ContentWithAutoCountingHeader})
-[^${Content:Header}](${Content:ContentWithManuallyHeader})
+[^..]({Content:ContentWithAutoCountingHeader})
+[^{Content:Header}]({Content:ContentWithManuallyHeader})
 ```
 
 **예시**:
@@ -875,9 +875,9 @@ $$
 **블록형 각주**:
 
 ```
-[^${Content:Header}]
+[^{Content:Header}]
 
-[^${Content:Header}]: ${Content}
+[^{Content:Header}]: {Content}
 ```
 
 ```
@@ -895,9 +895,9 @@ $$
 **인용구**:
 
 ```
-> ${Content}
-${Indent} ${Content:Line-broken}
-${Indent}> ${Content:Nested}
+> {Content}
+{Indent} {Content:Line-broken}
+{Indent}> {Content:Nested}
 ```
 
 **예시**:
@@ -917,21 +917,21 @@ ${Indent}> ${Content:Nested}
 
 **자리 표시자**:
 
-- `${CalloutMark}` ==>
+- `{CalloutMark}` ==>
   - `Info`
   - `Important`
   - `Warning`
   - `Error`
   - `Debug`
-- `${Emoji}` ==> `__Any Emoji__`
+- `{Emoji}` ==> `__Any Emoji__`
 
 ---
 
 **기본 콜아웃**:
 
 ```
-> [!${CalloutMark}] ${Content:Header}
-> ${Content}
+> [!{CalloutMark}] {Content:Header}
+> {Content}
 ```
 
 **예시**:
@@ -949,8 +949,8 @@ ${Indent}> ${Content:Nested}
 **확장 콜아웃**:
 
 ```
-> [:${Emoji}] ${Content:Header}
-> ${Content}
+> [:{Emoji}] {Content:Header}
+> {Content}
 ```
 
 **예시**:
@@ -982,8 +982,8 @@ ${Indent}> ${Content:Nested}
 **아코디언**:
 
 ```
-:::${Content:Header}
-${Content}
+:::{Content:Header}
+{Content}
 :::
 ```
 
