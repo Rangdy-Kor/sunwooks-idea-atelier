@@ -482,7 +482,6 @@ Utopia -.-> Rooms
 |  **AI 서비스**   |          ChatGPT          |          ChatGPT Pro          |      Winget       |                    -                    |
 |               |          Claude           |          Claude Max           |       Scoop       |                    -                    |
 |               |          Gemini           |        Google AI Ultra        |    Vivaldi PWA    |                    -                    |
-|               |                           |                               |                   |                                         |
 
 #### Creative
 
